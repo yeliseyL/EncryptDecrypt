@@ -6,7 +6,6 @@ import java.awt.event.MouseEvent;
 import static javax.swing.GroupLayout.Alignment.*;
 
 public class MainWindow extends JFrame {
-
     private final Color BG_COLOR = new Color(42, 42, 42);
     private final Color IN_AREA_COLOR = new Color(22, 22, 22);
     private final Color OUT_AREA_COLOR = new Color(22, 22, 22);
@@ -62,11 +61,13 @@ public class MainWindow extends JFrame {
         areaIn.setFont(TEXT_FONT);
         areaIn.setForeground(Color.white);
         areaIn.setCaretColor(Color.white);
-        areaIn.setPreferredSize(TEXT_AREAS_DIMENSION);
+        areaIn.setLineWrap(true);
+        areaIn.setWrapStyleWord(true);
         JScrollPane scrollIn = new JScrollPane(areaIn);
         scrollIn.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollIn.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollIn.setBorder(BorderFactory.createEmptyBorder());
+        scrollIn.setPreferredSize(TEXT_AREAS_DIMENSION);
 
         openButton.addActionListener(e ->{
             inPath = ReadWrite.getPath(this, "Choose a file");
@@ -127,11 +128,13 @@ public class MainWindow extends JFrame {
         areaOut.setFont(TEXT_FONT);
         areaOut.setForeground(Color.white);
         areaOut.setEditable(false);
-        areaOut.setPreferredSize(TEXT_AREAS_DIMENSION);
+        areaOut.setLineWrap(true);
+        areaOut.setWrapStyleWord(true);
         JScrollPane scrollOut = new JScrollPane(areaOut);
         scrollOut.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollOut.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollOut.setBorder(BorderFactory.createEmptyBorder());
+        scrollOut.setPreferredSize(TEXT_AREAS_DIMENSION);
 
         JButton goButton = new JButton("GO!");
         goButton.setBackground(BUTTONS_COLOR);
